@@ -86,6 +86,14 @@ header #logo {
 	background-size: 100%;
 }
 
+header #line {
+	height:1px;
+	width:30%; 
+	margin:auto;
+	background-color:#EBEBEB;
+	margin-top:-20px;
+}
+
 /* /////////////////////////////////////////////////////////////
 	POSTS CONTAINER
 //////////////// */
