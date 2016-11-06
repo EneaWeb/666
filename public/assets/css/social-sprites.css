@@ -1,0 +1,28 @@
+/* 300 px total width */
+
+.ss {
+	background: #FFFFFF url('/assets/img/social-sprites-mini.png');
+	border-radius: 20px;
+	width: 35px;
+	height: 36px;
+}
+
+.ss-facebook {
+	background-position: 0 0;
+}
+
+.ss-twitter {
+	background-position: 224px 73px;
+}
+
+.ss-tumblr {
+	background-position: 35px 73px;
+}
+
+.ss-email {
+	background-position: 35px 146px;
+}
+
+.ss-youtube {
+	background-position: 149px 146px;
+}

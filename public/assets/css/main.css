@@ -102,10 +102,9 @@ header #logo {
 		display: -ms-flexbox;
 		display: -webkit-flex;
 	flex-direction: row;
-		-webkit-flex-direction: row wrap;
 	flex-flow: row wrap;
 		-webkit-flex-flow: row wrap;
-	width: 100%;
+	width: 94%;
 	max-width: 700px;
 	height: auto;
 	background-color: #E9EBEE;
@@ -123,11 +122,12 @@ header #logo {
 
 /* uploaded picture */
 .container article .post img {
-	width:100%;
+	width: 100%;
 }
 
 /* post meta on right side */
 .container article .meta {
+	position:relative;
 	flex: 1;
 	order: 2;
 }
@@ -137,13 +137,16 @@ header #logo {
 	background-color:  #364D7D;
 }
 .container article .meta[type=twitter] {
-	background-color:  #364D7D;
+	background-color:  #00aced;
 }
-.container article .meta[type=google] {
-	background-color:  #364D7D;
+.container article .meta[type=youtube] {
+	background-color:  #dd4b39;
 }
 .container article .meta[type=email] {
-	background-color:  #364D7D;
+	background-color:  #6C6C6C;
+}
+.container article .meta[type="instagram"] {
+	background-color: #bc2a8d;
 }
 
 /* post meta on right side */
@@ -156,6 +159,13 @@ header #logo {
 	font-size:16px;
 }
 .container article .meta .name span {
+	line-height:18px;
 	display:block; 
 	clear:both;
+}
+
+.ss {
+	position:absolute; 
+	top:-20px;
+	right:-20px;
 }
