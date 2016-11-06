@@ -133,19 +133,24 @@ header #logo {
 }
 
 /* post meta types */
-.container article .meta[type=facebook] {
-	background-color:  #364D7D;
+.container article .meta[type=facebook],
+.ss-facebook {
+	background-color:  #3b5998;
 }
-.container article .meta[type=twitter] {
+.container article .meta[type=twitter],
+.ss-twitter {
 	background-color:  #00aced;
 }
-.container article .meta[type=youtube] {
+.container article .meta[type=youtube],
+.ss-youtube {
 	background-color:  #dd4b39;
 }
-.container article .meta[type=email] {
+.container article .meta[type=email],
+.ss-email {
 	background-color:  #6C6C6C;
 }
-.container article .meta[type="instagram"] {
+.container article .meta[type="instagram"],
+.ss-instagram {
 	background-color: #bc2a8d;
 }
 

@@ -1,7 +1,7 @@
 /* 300 px total width */
 
 .ss {
-	background: #FFFFFF url('/assets/img/social-sprites-mini.png');
+	background: url('/assets/img/social-sprites-mini.png');
 	border-radius: 20px;
 	width: 35px;
 	height: 36px;
