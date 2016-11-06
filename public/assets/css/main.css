@@ -1,0 +1,161 @@
+/*
+*  The Daily Rage
+*  Main CSS sheet
+*  Version: 0.1
+*	Author: [author name]
+*	Email: [email address]
+*  Licence: MIT
+*/
+
+/* /////////////////////////////////////////////////////////////
+	RESET
+//////////////// */
+
+*  {
+	box-sizing:border-box;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* /////////////////////////////////////////////////////////////
+	HTML BODY
+//////////////// */
+
+html, body {
+	background-color: #FFA300;
+	width: 100%;
+	font-family:arial, sans-serif;
+}
+
+/* /////////////////////////////////////////////////////////////
+	HEADER
+//////////////// */
+
+header {
+	width: 100%;
+	height: 200px;
+}
+
+header #logo {
+	margin: auto;
+	width: 90%;
+	height: 90%;
+	max-width: 400px;
+	background: #FFA300 url('/assets/img/logo.png') no-repeat center;
+	background-size: 100%;
+}
+
+/* /////////////////////////////////////////////////////////////
+	POSTS CONTAINER
+//////////////// */
+
+.container {
+	width: 100%;
+}
+
+/* main article container box */
+.container article {
+	display: flex;
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+	flex-direction: row;
+		-webkit-flex-direction: row wrap;
+	flex-flow: row wrap;
+		-webkit-flex-flow: row wrap;
+	width: 100%;
+	max-width: 700px;
+	height: auto;
+	background-color: #E9EBEE;
+	border: 1px solid #E1E1E1;
+	padding: 10px;
+	margin: auto;
+	margin-bottom: 20px;
+}
+
+/* post content box */
+.container article .post {
+	flex: 3;
+	order: 1;
+}
+
+/* uploaded picture */
+.container article .post img {
+	width:100%;
+}
+
+/* post meta on right side */
+.container article .meta {
+	flex: 1;
+	order: 2;
+}
+
+/* post meta types */
+.container article .meta[type=facebook] {
+	background-color:  #364D7D;
+}
+.container article .meta[type=twitter] {
+	background-color:  #364D7D;
+}
+.container article .meta[type=google] {
+	background-color:  #364D7D;
+}
+.container article .meta[type=email] {
+	background-color:  #364D7D;
+}
+
+/* post meta on right side */
+.container article .meta .name {
+	padding:10px;
+	text-transform: uppercase;
+	font-style: italic;
+	color:white;
+	font-weight:bold;
+	font-size:16px;
+}
+.container article .meta .name span {
+	display:block; 
+	clear:both;
+}

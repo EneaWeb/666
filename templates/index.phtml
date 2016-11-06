@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>The Daily Rage</title>
+        <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+    </head>
+    <body>
+        <header>
+            <div id="logo"></div>
+        </header>
+        <section class="container">
+            <?php for ($i=1; $i<=6; $i++) : ?>
+                <article>
+                    <div class="post">
+                        <?php if ($i == 1) : ?>
+                            <img src="/assets/posts/test-<?php echo $i;?>.png"/>
+                        <?php endif; ?>
+                    </div>
+                    <div class="meta" type="facebook">
+                        <div class="name">
+                            <span class="first-name">Icaro</span>
+                            <span class="second-name">Tealdi</span>
+                        </div>
+                    </div>
+                </article>
+            <?php endfor; ?>
+        </section>
+    </body>
+</html>
