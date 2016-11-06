@@ -10,12 +10,10 @@
             <div id="logo"></div>
         </header>
         <section class="container">
-            <?php for ($i=1; $i<=6; $i++) : ?>
+            <?php //for ($i=1; $i<=6; $i++) : ?>
                 <article>
                     <div class="post">
-                        <?php if ($i == 1) : ?>
-                            <img src="/assets/posts/test-<?php echo $i;?>.png"/>
-                        <?php endif; ?>
+                        <img src="/assets/posts/test-<?php echo $i;?>.png"/>
                     </div>
                     <div class="meta" type="facebook">
                         <div class="name">
@@ -24,7 +22,7 @@
                         </div>
                     </div>
                 </article>
-            <?php endfor; ?>
+            <?php //endfor; ?>
         </section>
     </body>
 </html>
