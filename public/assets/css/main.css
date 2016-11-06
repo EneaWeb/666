@@ -64,6 +64,7 @@ table {
 
 html, body {
 	background-color: #FFA300;
+	color:#FFFFFF;
 	width: 100%;
 	font-family:arial, sans-serif;
 }
@@ -88,10 +89,22 @@ header #logo {
 
 header #line {
 	height:1px;
-	width:30%; 
+	width:94%;
+	max-width:700px; 
 	margin:auto;
 	background-color:#EBEBEB;
 	margin-top:-20px;
+}
+
+/* /////////////////////////////////////////////////////////////
+	FOOTER
+//////////////// */
+
+footer {
+	width: 100%;
+	font-size: 14px;
+	padding: 10px 10px 40px 10px;
+	text-align: center;
 }
 
 /* /////////////////////////////////////////////////////////////
@@ -100,6 +113,7 @@ header #line {
 
 .container {
 	width: 100%;
+	padding-bottom: 60px;
 }
 
 /* main article container box */
