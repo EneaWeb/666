@@ -11,40 +11,24 @@
 
     </head>
     <body>
+        <div id="latest" style="display:none">0</div>
         <header>
             <div id="logo"></div>
             <div id="line"></div>
         </header>
-        <section id="container">
-        </section>
-        <div id="latest" style="display:none">0</div>
+        <section id="container"></section>
         <footer>
             testo testo testo testo testo testo testo testo 
         </footer>
 
-
         <script>
 
-            function debounce(func, wait, immediate) {
-                var timeout;
-                return function() {
-                    var context = this, 
-                        args = arguments;
-                    clearTimeout(timeout);
-                    timeout = setTimeout(function() {
-                        timeout = null;
-                        if (!immediate) func.apply(context, args);
-                    }, wait);
-                    if (immediate && !timeout) func.apply(context, args);
-                };
-            };
+            function debounce(func, wait, immediate) { var timeout; return function() { var context = this, args = arguments; clearTimeout(timeout); timeout = setTimeout(function() { timeout = null; if (!immediate) func.apply(context, args); }, wait); if (immediate && !timeout) func.apply(context, args); }; };
 
             // define main container
             var container = document.getElementById('container');
-           
             // on page load, retrieve articles [starting_id, key]
             retrieveArticles('0', 'key');
-
             // on bottom reached, retrieve more articles [starting_id, key]
             scrollAction = debounce(function() {
                 if ( (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 60) {
@@ -57,7 +41,6 @@
             }, 50);
 
             window.addEventListener('scroll', scrollAction);
-
 
             function retrieveArticles(starting_id, key) {
                 var xhr = new XMLHttpRequest();
@@ -109,7 +92,6 @@
                         </div>\
                         <div class="ss ss-'+type+'"></div>\
                     </div>';
-
                     container.appendChild(article);
                 }
             }
@@ -123,8 +105,6 @@
                 container.appendChild(noMore);
             }
 
-
         </script>
-
     </body>
 </html>
