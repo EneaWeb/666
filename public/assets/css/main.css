@@ -298,3 +298,33 @@ article.article {
 #close-button.baguetteBox-button {
 	display:none;
 }
+
+/* /////////////////////////////////////////////////////////////
+	MEDIA QUERIES
+//////////////// */
+
+@media only screen and (max-device-width: 667px) {
+
+	/* main article container box */
+	#container article {
+		display: block;
+	}
+
+	/* post content box */
+	#container article .post {
+		margin-bottom : -3px;
+		flex: none;
+	}
+
+	/* uploaded picture */
+	#container article .post img {
+		width: 100%;
+	}
+
+	/* post meta on right side */
+	#container article .meta {
+		position:relative;
+		flex: none;
+	}
+
+}

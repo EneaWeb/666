@@ -28,8 +28,6 @@
 
         <script>
 
-            function debounce(func, wait, immediate) { var timeout; return function() { var context = this, args = arguments; clearTimeout(timeout); timeout = setTimeout(function() { timeout = null; if (!immediate) func.apply(context, args); }, wait); if (immediate && !timeout) func.apply(context, args); }; };
-
             // define main container
             var container = document.getElementById('container');
 
@@ -99,10 +97,19 @@
                     name = articles[i].name;
                     picture = articles[i].picture;
                     type = articles[i].type;
+                    content = '';
+
+                    content += '\
+                        <div class="meta" type="'+type+'">\
+                            <div class="name">\
+                                <span class="first-name">'+name+'</span>\
+                            </div>\
+                            <div class="ss ss-'+type+'"></div>\
+                        </div>';
 
                     // if desktop, print A tags for gallery link
                     if (typeof window.orientation == 'undefined') {
-                        content = '\
+                        content += '\
                         <div class="post">\
                             <a href="/assets/posts/'+picture+'">\
                                 <img src="/assets/posts/'+picture+'"/>\
@@ -110,18 +117,11 @@
                         </div>';
                     // if mobile, don't need for gallery link
                     } else {
-                        content = '\
+                        content += '\
                         <div class="post">\
                             <img src="/assets/posts/'+picture+'"/>\
                         </div>';
                     }
-                    content += '\
-                    <div class="meta" type="'+type+'">\
-                        <div class="name">\
-                            <span class="first-name">'+name+'</span>\
-                        </div>\
-                        <div class="ss ss-'+type+'"></div>\
-                    </div>';
 
                     article.innerHTML = content;
                     container.appendChild(article);
@@ -136,6 +136,8 @@
                 // append to container
                 container.appendChild(noMore);
             }
+
+            function debounce(func, wait, immediate) { var timeout; return function() { var context = this, args = arguments; clearTimeout(timeout); timeout = setTimeout(function() { timeout = null; if (!immediate) func.apply(context, args); }, wait); if (immediate && !timeout) func.apply(context, args); }; };
 
         </script>
     </body>
