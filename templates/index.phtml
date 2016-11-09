@@ -46,7 +46,7 @@
 
             // on bottom reached, retrieve more articles [starting_id, key]
             scrollAction = debounce(function() {
-                if ( (window.innerHeight + window.scrollY) == document.body.offsetHeight) {
+                if ( (window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
                     // get latest id
                     var latest = document.getElementById("latest").innerHTML;
                     if (latest !== '0' && latest != 'end') {
@@ -55,7 +55,7 @@
                 }
             }, 150);
 
-            window.addEventListener('scroll', scrollAction);
+            window.addEventListener('onscroll', scrollAction);
 
 
             function retrieveArticles(starting_id, key) {
