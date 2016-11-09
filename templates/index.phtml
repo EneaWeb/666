@@ -36,9 +36,10 @@
                     var latest = document.getElementById("latest").innerHTML;
                     if (latest !== '0' && latest != 'end') {
                         retrieveArticles(latest, 'key');
+                        console.log('taaac');
                     }
                 }
-            };
+            }
 
             function retrieveArticles(starting_id, key) {
                 var xhr = new XMLHttpRequest();
