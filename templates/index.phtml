@@ -28,7 +28,8 @@
             function debounce(func, wait, immediate) {
                 var timeout;
                 return function() {
-                    var context = this, args = arguments;
+                    var context = this, 
+                        args = arguments;
                     clearTimeout(timeout);
                     timeout = setTimeout(function() {
                         timeout = null;
@@ -53,7 +54,7 @@
                         retrieveArticles(latest, 'key');
                     }
                 }
-            }, 150);
+            }, 50);
 
             window.addEventListener('scroll', scrollAction);
 
@@ -62,8 +63,8 @@
                 var xhr = new XMLHttpRequest();
                 xhr.open("GET", '/api/take/'+starting_id+'/'+key, true);
                 xhr.onreadystatechange = function () {
-                    var DONE = 4; // request is done
-                    var OK = 200; // successful return
+                    var DONE = 4, // request is done
+                        OK = 200; // successful return
                     if (xhr.readyState === DONE) {
                         if (xhr.status === OK) {
                             // JSON parse
