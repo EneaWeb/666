@@ -67,7 +67,7 @@
                                 // render articles and append to container
                                 renderArticles(articles, container);
                                 // run gallery if not mobile
-                                if (typeof window.orientation == 'undefined')
+                                if (typeof window.orientation == 'undefined') {
                                     baguetteBox.run('#container', {
                                         'animation' : 'fadeIn',
                                         'captions' : false
