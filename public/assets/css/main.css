@@ -210,3 +210,6 @@ article.article {
   animation-duration: 0.7s;
   -webkit-animation-delay: 0s;
 }
+
+#loading { text-align:center; margin-top:-50px; margin-bottom:20px; }
+#loading img {margin:auto;}

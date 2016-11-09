@@ -7,8 +7,7 @@
         <link rel="stylesheet" type="text/css" href="/assets/css/social-sprites.css">
         <link rel="stylesheet" type="text/css" href="/assets/css/animate.css">
         <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
-
-
+        <img src="/assets/img/rolling.svg" style="display:none">
     </head>
     <body>
         <div id="latest" style="display:none">0</div>
@@ -17,6 +16,7 @@
             <div id="line"></div>
         </header>
         <section id="container"></section>
+        <div id="loading"></div>
         <footer>
             testo testo testo testo testo testo testo testo 
         </footer>
@@ -35,6 +35,7 @@
                     // get latest id
                     var latest = document.getElementById("latest").innerHTML;
                     if (latest !== '0' && latest != 'end') {
+                        document.getElementById("loading").innerHTML = '<img src="/assets/img/rolling.svg">';
                         retrieveArticles(latest, 'key');
                     }
                 }
@@ -64,6 +65,8 @@
                                 // render no more articles message
                                 renderNoMoreArticles(container);
                             }
+                          // remove loading image
+                          document.getElementById("loading").innerHTML = '';
                         } else {
                             console.log('Error: ' + xhr.status); // An error occurred during the request.
                         }
