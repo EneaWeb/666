@@ -16,7 +16,7 @@
             <div id="line"></div>
         </header>
         <section id="container"></section>
-        <div id="loading"></div>
+        <div id="loading"><img src="/assets/img/rolling.svg"></div>
         <footer>
             testo testo testo testo testo testo testo testo 
         </footer>
@@ -27,15 +27,17 @@
 
             // define main container
             var container = document.getElementById('container');
+
             // on page load, retrieve articles [starting_id, key]
             retrieveArticles('0', 'key');
+
             // on bottom reached, retrieve more articles [starting_id, key]
             scrollAction = debounce(function() {
-                if ( (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 60) {
+                if ( (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
                     // get latest id
                     var latest = document.getElementById("latest").innerHTML;
                     if (latest !== '0' && latest != 'end') {
-                        document.getElementById("loading").innerHTML = '<img src="/assets/img/rolling.svg">';
+                        //document.getElementById("loading").innerHTML = '<img src="/assets/img/rolling.svg">';
                         retrieveArticles(latest, 'key');
                     }
                 }
@@ -62,11 +64,11 @@
                             } else {
                                 // update latest id as 'end'
                                 document.getElementById("latest").innerHTML = 'end';
+                                // remove loading image
+                                document.getElementById("loading").innerHTML = '';
                                 // render no more articles message
                                 renderNoMoreArticles(container);
                             }
-                          // remove loading image
-                          document.getElementById("loading").innerHTML = '';
                         } else {
                             console.log('Error: ' + xhr.status); // An error occurred during the request.
                         }
