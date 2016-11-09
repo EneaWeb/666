@@ -15,7 +15,7 @@ $app->get('/policy', function($request, $response, $args) {
 // 
 $app->add(new RKA\Middleware\IpAddress());
 // num posts
-$num_posts = 5;
+$num_posts = 20;
 
 $app->get('/api/take/{starting_id}/{key}', function ($request, $response, $args) use ($container, $num_posts) {
 	// check if server IP is the same as the request one
