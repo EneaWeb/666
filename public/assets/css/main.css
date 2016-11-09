@@ -194,6 +194,12 @@ footer {
 	clear:both;
 }
 
+#container p {
+	text-align:center;
+	padding-top:20px;
+	font-size:14px;
+}
+
 .ss {
 	position:absolute; 
 	top:-20px;

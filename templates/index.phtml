@@ -34,7 +34,7 @@
                 if ( (window.innerHeight + window.scrollY) >= document.body.offsetHeight -100) {
                     // get latest id
                     var latest = document.getElementById("latest").innerHTML;
-                    if (latest !== '0') {
+                    if (latest !== '0' && latest != 'end') {
                         retrieveArticles(latest, 'key');
                     }
                 }
@@ -56,6 +56,11 @@
                                 document.getElementById("latest").innerHTML = articles[articles.length -1].id;
                                 // render articles and append to container
                                 renderArticles(articles, container);
+                            } else {
+                                // update latest id as 'end'
+                                document.getElementById("latest").innerHTML = 'end';
+                                // render no more articles message
+                                renderNoMoreArticles(container);
                             }
                         } else {
                             console.log('Error: ' + xhr.status); // An error occurred during the request.
@@ -67,7 +72,6 @@
 
             function renderArticles(articles, container) {
                 // console.log($data);
-                var content;
                 for (var i = 0; i < articles.length; i++) {
 
                     var article = document.createElement('article');
@@ -89,6 +93,15 @@
 
                     container.appendChild(article);
                 }
+            }
+
+            function renderNoMoreArticles(container) {
+                // create new P alement
+                var noMore = document.createElement('p');
+                // insert content
+                noMore.innerHTML = 'No more posts to show';
+                // append to container
+                container.appendChild(noMore);
             }
         </script>
 
