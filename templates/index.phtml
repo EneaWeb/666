@@ -66,8 +66,9 @@
                                 document.getElementById("latest").innerHTML = articles[articles.length -1].id;
                                 // render articles and append to container
                                 renderArticles(articles, container);
-                                // run gallery if not mobile
+                                // if not mobile
                                 if (typeof window.orientation == 'undefined') {
+                                    // run gallery
                                     baguetteBox.run('#container', {
                                         'animation' : 'fadeIn',
                                         'captions' : false
@@ -99,18 +100,30 @@
                     picture = articles[i].picture;
                     type = articles[i].type;
 
-                    article.innerHTML = '\
-                    <div class="post">\
-                        <a href="/assets/posts/'+picture+'" data-caption="Image caption">\
-                            <img src="/assets/posts/'+picture+'" alt="Alt Text"/>\
-                        </a>\
-                    </div>\
+                    // if desktop, print A tags for gallery link
+                    if (typeof window.orientation == 'undefined') {
+                        content = '\
+                        <div class="post">\
+                            <a href="/assets/posts/'+picture+'">\
+                                <img src="/assets/posts/'+picture+'"/>\
+                            </a>\
+                        </div>';
+                    // if mobile, don't need for gallery link
+                    } else {
+                        content = '\
+                        <div class="post">\
+                            <img src="/assets/posts/'+picture+'"/>\
+                        </div>';
+                    }
+                    content += '\
                     <div class="meta" type="'+type+'">\
                         <div class="name">\
                             <span class="first-name">'+name+'</span>\
                         </div>\
                         <div class="ss ss-'+type+'"></div>\
                     </div>';
+
+                    article.innerHTML = content;
                     container.appendChild(article);
                 }
             }
