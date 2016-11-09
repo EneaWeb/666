@@ -140,6 +140,7 @@ footer {
 
 /* post content box */
 #container article .post {
+	margin-bottom : -3px;
 	flex: 3;
 	order: 1;
 }
