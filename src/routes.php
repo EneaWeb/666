@@ -17,7 +17,7 @@ $app->add(new RKA\Middleware\IpAddress());
 // num posts
 $num_posts = 5;
 
-$app->get('/api/take/{starting_id}/{key}', function ($request, $response, $args) use ($container) {
+$app->get('/api/take/{starting_id}/{key}', function ($request, $response, $args) use ($container, $num_posts) {
 	// check if server IP is the same as the request one
 	//if ($request->getAttribute('ip_address') === $_SERVER['SERVER_ADDR'] ) {
 		// check the api key val
