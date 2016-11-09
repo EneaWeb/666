@@ -5,16 +5,17 @@ $app->get('/', function ($request, $response, $args) {
     return $this->renderer->render($response, 'index.phtml');
 });
 
-/**
- * Routes group for APIs security controls
- */
+$app->get('/policy', function($request, $response, $args) {
+	return $this->renderer->render($response, 'policy.phtml');
+});
 
-// latest 20 posts
+// latest x posts
 // starting_id = 0 for first 20 records, [int] for id value. It asks for ids >= starting_id
 // key = API key
 // 
-// 
 $app->add(new RKA\Middleware\IpAddress());
+// num posts
+$num_posts = 5;
 
 $app->get('/api/take/{starting_id}/{key}', function ($request, $response, $args) use ($container) {
 	// check if server IP is the same as the request one
@@ -23,7 +24,7 @@ $app->get('/api/take/{starting_id}/{key}', function ($request, $response, $args)
 		if ( $args['key'] == $this->get('settings')['api']['key'] ) {
 			// get values from starting id (>=)
 			if ($args['starting_id'] == '0') {
-				$data = $container->get('db')->table('posts')->orderBy('id', 'desc')->take(5)->get();
+				$data = $container->get('db')->table('posts')->orderBy('id', 'desc')->take($num_posts)->get();
 			} else {
 				$data = $container->get('db')->table('posts')->where('id', '<', $args['starting_id'])->orderBy('id', 'desc')->take(5)->get();
 			}

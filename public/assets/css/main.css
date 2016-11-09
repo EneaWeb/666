@@ -64,9 +64,23 @@ table {
 
 html, body {
 	background-color: #FFA300;
-	color:#FFFFFF;
+	color:#EBEBEB;
 	width: 100%;
 	font-family:arial, sans-serif;
+}
+
+/* /////////////////////////////////////////////////////////////
+	BASIC ELEMENTS
+//////////////// */
+
+a {
+	color:#EBEBEB;
+}
+
+a:hover, 
+a:active, 
+a:focus {
+	color:#D8D8D8;
 }
 
 /* /////////////////////////////////////////////////////////////
@@ -184,7 +198,7 @@ footer {
 	padding:10px;
 	text-transform: uppercase;
 	font-style: italic;
-	color:white;
+	color: #EBEBEB;
 	font-weight:bold;
 	font-size:16px;
 }
@@ -211,5 +225,37 @@ article.article {
   -webkit-animation-delay: 0s;
 }
 
-#loading { text-align:center; margin-top:-50px; margin-bottom:20px; }
-#loading img {margin:auto;}
+#loading { 
+	text-align: center; 
+	margin-top: -50px; 
+	margin-bottom: 20px; 
+}
+
+#loading img {
+	margin: auto;
+}
+
+#container .page-container {
+	margin: auto;
+	width:94%;
+	max-width:800px;
+	font-size:14px;
+	line-height:18px;
+}
+
+#container .page-container p {
+	text-align: justify;
+	background-color:rgba(0,0,0,0.1);
+	padding:20px;
+	margin:10px;
+}
+
+#container .page-container h3 {
+	text-align:center;
+	margin: auto;
+	width:94%;
+	max-width:1024px;
+	font-size:24px;
+	padding-bottom:30px;
+	border-bottom:1px solid #EBEBEB;
+}
