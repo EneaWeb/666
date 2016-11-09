@@ -9,6 +9,14 @@ $app->get('/policy', function($request, $response, $args) {
 	return $this->renderer->render($response, 'policy.phtml');
 });
 
+$app->get('/upload', function($request, $response, $args) {
+	return $this->renderer->render($response, 'upload.phtml');
+});
+
+$app->post('/upload', function($request, $response, $args) {
+	return $response->withRedirect('/upload');
+});
+
 // latest x posts
 // starting_id = 0 for first 20 records, [int] for id value. It asks for ids >= starting_id
 // key = API key

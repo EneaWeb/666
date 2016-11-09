@@ -296,6 +296,8 @@ article.article {
 	margin: 0px 6px;
 	border-radius:5px;
 	cursor:pointer;
+	border:none;
+	text-transform:uppercase;
 }
 .button:hover,
 .button:active,

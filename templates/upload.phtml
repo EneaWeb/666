@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>The Daily Rage | Policy</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <link rel="stylesheet" type="text/css" href="/assets/css/imagecrop.min.css">
+        <link rel="stylesheet" type="text/css" href="/assets/css/main.css?v=0.4">
+        <script src="/assets/js/imagecrop.min.js"></script>
+    </head>
+    <body>
+        <div id="latest" style="display:none">0</div>
+        <header>
+            <a href="/"><div id="logo"></div></a>
+            <div id="line"></div>
+        </header>
+        <section id="container">
+            
+            <div class="page-container">
+
+                <form enctype="multipart/form-data" action="/test" class="dropzone" id="upload"> 
+                    <input id="image-file" type="file" />
+                    <input type="submit" class="button" value="Upload" />
+                </form>
+
+                <br><br><br>test<br><br>
+                <div class="cropper"/>
+
+                <div id="cropped"/>
+
+            </div>
+
+        </section>
+        <footer>
+            The Daily Rage © | <a href="/policy">Policy</a>
+        </footer>
+
+        <script>
+
+            img_c = new ImageCropper('.cropper', '/assets/posts/test-1.png');
+            var img_b64_str = img_c.crop('image/png', '1');
+            console.log(img_b64_str);
+
+        </script>
+
+    </body>
+</html>
