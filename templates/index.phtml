@@ -8,6 +8,7 @@
         <link rel="stylesheet" type="text/css" href="/assets/css/animate.css">
         <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
 
+
     </head>
     <body>
         <header>
@@ -23,6 +24,20 @@
 
 
         <script>
+
+            function debounce(func, wait, immediate) {
+                var timeout;
+                return function() {
+                    var context = this, args = arguments;
+                    clearTimeout(timeout);
+                    timeout = setTimeout(function() {
+                        timeout = null;
+                        if (!immediate) func.apply(context, args);
+                    }, wait);
+                    if (immediate && !timeout) func.apply(context, args);
+                };
+            };
+
             // define main container
             var container = document.getElementById('container');
            
@@ -30,7 +45,7 @@
             retrieveArticles('0', 'key');
 
             // on bottom reached, retrieve more articles [starting_id, key]
-            window.onscroll = function() {
+            scrollAction = debounce(function() {
                 if ( (window.innerHeight + window.scrollY) == document.body.offsetHeight) {
                     // get latest id
                     var latest = document.getElementById("latest").innerHTML;
@@ -38,7 +53,10 @@
                         retrieveArticles(latest, 'key');
                     }
                 }
-            }
+            }, 250);
+
+            window.addEventListener('scroll', scrollAction);
+
 
             function retrieveArticles(starting_id, key) {
                 var xhr = new XMLHttpRequest();
@@ -103,7 +121,8 @@
                 // append to container
                 container.appendChild(noMore);
             }
-            
+
+
         </script>
 
     </body>
