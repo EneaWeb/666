@@ -6,6 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <link rel="stylesheet" type="text/css" href="/assets/css/social-sprites.css">
         <link rel="stylesheet" type="text/css" href="/assets/css/animate.css">
+        <link rel="stylesheet" type="text/css" href="/assets/css/baguetteBox.min.css">
+        <script src="/assets/js/baguetteBox.min.js"></script>
+        <!-- main css -->
         <link rel="stylesheet" type="text/css" href="/assets/css/main.css?v=0.4">
     </head>
     <body>
@@ -63,6 +66,11 @@
                                 document.getElementById("latest").innerHTML = articles[articles.length -1].id;
                                 // render articles and append to container
                                 renderArticles(articles, container);
+                                // run gallery
+                                baguetteBox.run('#container', {
+                                    'animation' : 'fadeIn',
+                                    'captions' : false
+                                });
                             } else {
                                 // update latest id as 'end'
                                 document.getElementById("latest").innerHTML = 'end';
@@ -91,7 +99,9 @@
 
                     article.innerHTML = '\
                     <div class="post">\
-                        <img src="/assets/posts/'+picture+'"/>\
+                        <a href="/assets/posts/'+picture+'" data-caption="Image caption">\
+                            <img src="/assets/posts/'+picture+'" alt="Alt Text"/>\
+                        </a>\
                     </div>\
                     <div class="meta" type="'+type+'">\
                         <div class="name">\
