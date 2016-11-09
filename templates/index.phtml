@@ -5,73 +5,92 @@
         <title>The Daily Rage</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <link rel="stylesheet" type="text/css" href="/assets/css/social-sprites.css">
+        <link rel="stylesheet" type="text/css" href="/assets/css/animate.css">
         <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+
     </head>
     <body>
         <header>
             <div id="logo"></div>
             <div id="line"></div>
         </header>
-        <section class="container">
-            <!-- Start Article -->
-            <article>
-                <div class="post">
-                    <img src="/assets/posts/test-1.png"/> <!-- Post img content -->
-                </div>
-                <div class="meta" type="facebook">
-                    <div class="name"> 
-                        <span class="first-name">Icaro</span>
-                        <span class="second-name">Tealdi</span>
-                    </div>
-                    <div class="ss ss-facebook"></div>
-                </div>
-            </article>
-            <!-- End Article -->
-            <!-- Start Article -->
-            <article>
-                <div class="post">
-                    <img src="/assets/posts/test-2.png"/> <!-- Post img content -->
-                </div>
-                <div class="meta" type="twitter">
-                    <div class="name"> 
-                        <span class="first-name">Walter</span>
-                        <span class="second-name">Ferrari</span>
-                    </div>
-                    <div class="ss ss-twitter"></div>
-                </div>
-            </article>
-            <!-- End Article -->
-            <!-- Start Article -->
-            <article>
-                <div class="post">
-                    <img src="/assets/posts/test-3.png"/> <!-- Post img content -->
-                </div>
-                <div class="meta" type="email">
-                    <div class="name"> 
-                        <span class="first-name">Mia</span>
-                        <span class="second-name">Madre</span>
-                    </div>
-                    <div class="ss ss-email"></div>
-                </div>
-            </article>
-            <!-- End Article -->
-            <!-- Start Article -->
-            <article>
-                <div class="post">
-                    <img src="/assets/posts/test-4.png"/> <!-- Post img content -->
-                </div>
-                <div class="meta" type="youtube">
-                    <div class="name"> 
-                        <span class="first-name">[attenzione]</span>
-                        <span class="second-name">su Google abbiamo un nome utente, non per forza nome+cognome</span>
-                    </div>
-                    <div class="ss ss-youtube"></div>
-                </div>
-            </article>
-            <!-- End Article -->
+        <section id="container">
         </section>
+        <div id="latest" style="display:none">0</div>
         <footer>
             testo testo testo testo testo testo testo testo 
         </footer>
+
+
+        <script>
+            // define main container
+            var container = document.getElementById('container');
+           
+            // on page load, retrieve articles [starting_id, key]
+            retrieveArticles('0', 'key');
+
+            // on bottom reached, retrieve more articles [starting_id, key]
+            window.onscroll = function(e) {
+                if ( (window.innerHeight + window.scrollY) >= document.body.offsetHeight -100) {
+                    // get latest id
+                    var latest = document.getElementById("latest").innerHTML;
+                    if (latest !== '0') {
+                        retrieveArticles(latest, 'key');
+                    }
+                }
+            };
+
+            function retrieveArticles(starting_id, key) {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", '/api/take/'+starting_id+'/'+key, true);
+                xhr.onreadystatechange = function () {
+                    var DONE = 4; // request is done
+                    var OK = 200; // successful return
+                    if (xhr.readyState === DONE) {
+                        if (xhr.status === OK) {
+                            // JSON parse
+                            var articles = JSON.parse(xhr.responseText);
+                            // if there are remaining articles
+                            if (articles !== "") {
+                                // update latest id
+                                document.getElementById("latest").innerHTML = articles[articles.length -1].id;
+                                // render articles and append to container
+                                renderArticles(articles, container);
+                            }
+                        } else {
+                            console.log('Error: ' + xhr.status); // An error occurred during the request.
+                        }
+                    }
+                };
+                xhr.send(null);
+            }
+
+            function renderArticles(articles, container) {
+                // console.log($data);
+                var content;
+                for (var i = 0; i < articles.length; i++) {
+
+                    var article = document.createElement('article');
+                    article.className = 'article animated fadeInUp';
+                    name = articles[i].name;
+                    picture = articles[i].picture;
+                    type = articles[i].type;
+
+                    article.innerHTML = '\
+                    <div class="post">\
+                        <img src="/assets/posts/'+picture+'"/>\
+                    </div>\
+                    <div class="meta" type="'+type+'">\
+                        <div class="name">\
+                            <span class="first-name">'+name+'</span>\
+                        </div>\
+                        <div class="ss ss-'+type+'"></div>\
+                    </div>';
+
+                    container.appendChild(article);
+                }
+            }
+        </script>
+
     </body>
 </html>
